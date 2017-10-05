@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Subject</title>
+  <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      </style>
+</head>
+<body>
+    <h1>Students Data</h1>
+  <a href="/">Home</a>
+  <a href="subject">Subjects</a>
+  <a href="teacher">Teachers</a>
+  <a href="student">Students</a>
+  <br/><br/>
+  
+  <h3><a href="/student/add">Add Student</a></h3>
+  <table>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>Email</th> 
+        <th></th>
+        <th>Options</th>  
+      </tr>
+      <%dataStudents.forEach((tampilanStudents)=>{%>
+        <tr>
+            <td><%=tampilanStudents.id%></td>
+            <td><%=tampilanStudents.first_name%></td> 
+            <td><%=tampilanStudents.last_name%></td>
+            <td><%=tampilanStudents.email%></td>
+            <td><a href="student/edit/<%=tampilanStudents.id%>">Edit</a></td>
+            <td><a href="student/delete/<%=tampilanStudents.id%>" onclick="return confirm('Delete this student?');">Delete</a></td>
+        </tr>
+     <% }, this)%>
+      
+    </table>
+</body>
+</html>
