@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Subject</title>
-  <style>
-      table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-      }
-      </style>
+  <title>Subjects</title>
+  <% include ../partials/head %>
 </head>
 <body>
-  <h1>Subjects</h1>
-  <a href="/">Home</a>
-  <a href="subject">Subjects</a>
-  <a href="teacher">Teachers</a>
-  <a href="student">Students</a>
+<section class="section">
+    <div class="container">
+      <% include ../partials/menu%>
+        <br/><br/>
+   <h1 class="title">Subjects Data</h1>
+
   <br/><br/>
-  <table>
+  <table  class="table ">
       <tr>
         <th>Id</th>
-        <th>Subject Name</th> 
+        <th>Subject Name</th>
+        <th>Teachers Name</th>
+        <th>Actions</th>
       </tr>
-      <% dataSubjects.forEach((tampilanSubjects)=>{%>      
+      <% dataSubjects.forEach((tampilanSubjects)=>{%>
       <tr>
         <td><%=tampilanSubjects.id%></td>
-        <td><%=tampilanSubjects.subject_name%></td> 
+        <td><%=tampilanSubjects.subject_name%></td>
+        <td>
+          <ol>
+            <%tampilanSubjects.Teachers.forEach((tampilNamaGuru)=>{%>
+              <li>
+                <%=tampilNamaGuru.first_name +' '+tampilNamaGuru.last_name%>
+              </li>
+            <%})%>
+          </ol>
+        </td>
+        <td><a href="/subject/<%=tampilanSubjects.id%>/enrolledstudents">Enrolled Students</a></td>
       </tr>
     <%},this)%>
     </table>
+
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Subjects</title>
+  <% include ../partials/head %>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+    <h1 class="title">Subjects Data</h1>
+
+  <br/>
+  <a class="button is-primary is-outlined" href="/subject">
+    return to Subject list
+  </a>
+  <br/>  <br/>
+ <h1 class="title"><%=dataSubjects.subject_name%></h1>
+  <table  class="table">
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>scoreLetter</th>
+      </tr>
+      <!-- dataSubjects
+      dataId -->
+      <% dataId.forEach((tampilanSubjects)=>{%>
+        <tr>
+            <%if(dataSubjects.id===tampilanSubjects.SubjectId){%>
+          <td>
+              <%=tampilanSubjects.Student.first_name %>
+          </td>
+          <td>
+            <% if(tampilanSubjects.score){%>
+            <%=tampilanSubjects.score%>
+            <% } else {%>
+              <a href="<%=tampilanSubjects.id%>/givescore">Give Score</a>
+            <%} %>
+          </td>
+          <td>
+            <%= scoreLetter(tampilanSubjects.score)%>
+          </td>
+          <%}%>
+        </tr>
+      <%},this)%>
+</body>
+</html>

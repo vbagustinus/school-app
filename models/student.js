@@ -17,12 +17,15 @@ module.exports = (sequelize, DataTypes) => {
         isEmail : true
       }
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  Student.associate = model =>{
+    Student.hasMany(model.Subject_Student ,{as: 'StudentId'})
+    Student.belongsToMany(model.Subject,
+    {
+      through: 'Subject_Students',
+      foreignKey: 'StudentId'
+    })
+  }
+ 
   return Student;
 };

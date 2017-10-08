@@ -7,10 +7,10 @@
 <body>
 <section class="section">
     <div class="container">
-  <h1 class="title">Add Student</h1>
+  <h1 class="title">Add Teacher</h1>
   <br/>
-  <a class="button is-primary is-outlined" href="/student">
-    Show All Student
+  <a class="button is-primary is-outlined" href="/teacher">
+      Show All Teachers
   </a>
   <br/>
   <br/>
@@ -51,10 +51,27 @@
                 </span>
               </div>
             </div>
-            <div class="control">
-                <button class="button is-primary">Kirim</button>
-            </div>
+        <div class="control">
+            <button class="button is-primary">Kirim</button>
+        </div>
+    
+    <div class="field">
+        <label class="label">Subject</label>
+        <div class="control">
+          <div class="select">
+            <select name="name">
+                  <%dataSubjects.forEach((listSubjects)=>{%>
+              <option value='<%= listSubjects.id %>'>
+                  <%= listSubjects.subject_name %>
+              </option>
+              <%}, this)%>
+            </select>
+          </div>
+        </div>
+      </div>
+      <br/>
+    <input type="submit" value="Submit">
   </form>
+
 </body>
 </html>
-

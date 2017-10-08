@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Choose Subject</title>
+  <% include ../partials/head %>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+      <h1 class="title">Add Subject to Student</h1>
+      <br/>
+      <br/>
+      <form action="/student/<%=dataStudent.id%>/addsubject" method="post">
+        <div class="control">
+            <label class="label">First name</label>
+            <input class="input" type="text" placeholder="<%=dataStudent.first_name%>" disabled>
+        </div>
+        <div class="control">
+            <label class="label">Last name</label>
+            <input class="input" type="text" placeholder="<%=dataStudent.last_name%>" disabled>
+        </div>
+        <div class="control">
+            <label class="label">Email</label>
+            <input class="input" type="text" placeholder="<%=dataStudent.email%>" disabled>
+        </div>
+        <div class="field">
+            <label class="label">Choose Subject</label>
+            <div class="control">
+              <div class="select">
+                <select name="SubjectId">
+                      <%dataSubjects.forEach((listSubjects)=>{%>
+                  <option value='<%= listSubjects.id %>'>
+                      <%= listSubjects.subject_name %>
+                  </option>
+                  <%}, this)%>
+                </select>
+              </div>
+            </div>
+          </div>
+        <br/><br/>
+        <input class="button is-primary is-outlined" type="submit" value="Kirim">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Score</title>
+  <% include ../partials/head %>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+      <h1 class="title">Give Score</h1>
+      <br/>
+      <br/>
+      <form action="/subject/<%=dataId.id%>/givescore" method="post">
+        <div class="control">
+              <label class="label">Student Name</label>
+          <%dataStudent.forEach(namaStudent=>{%>
+            <%if(dataId.StudentId===namaStudent.Student.id){%> 
+              <input class="input" type="text" placeholder="<%=namaStudent.Student.first_name%>" disabled>
+            <%}%>
+          <%})%>
+        </div>
+        <div class="control">
+            <label class="label">Subject Name</label>
+            <%dataSubject.forEach(namaSubject=>{%>
+              <%if(dataId.SubjectId===namaSubject.id){%>
+                <input class="input" type="text" placeholder="<%=namaSubject.subject_name%>" disabled>
+              <%}%>
+            <%})%>
+        </div>
+        <div class="field">
+          <label class="label">Score</label>
+          <div class="control">
+            <input class="input" name="score" type="text" placeholder="Masukkan score">
+          </div>
+        </div>
+        <input class="button is-primary is-outlined" type="submit" value="Kirim">
+</body>
+</html>

@@ -14,7 +14,7 @@ router.get('/add',(req, res)=>{
 router.post('/add', (req, res)=>{
   let inputStudent = req.body;
   // console.log(inputStudent)
-  model.Student.create({ 
+  model.Student.create({
     first_name: inputStudent.first_name,
     last_name: inputStudent.last_name ,
     email: inputStudent.email
@@ -33,10 +33,11 @@ router.get('/edit/:id', (req,res)=>{
 router.post('/edit/:id', (req,res)=>{
   let updateStudent = req.body;
   model.Student.update(
-    { 
+    {
       first_name: updateStudent.first_name,
       last_name: updateStudent.last_name ,
-      email: updateStudent.email},
+      email: updateStudent.email
+    },
       {
          where: {
            id: req.params.id
@@ -56,6 +57,24 @@ router.get('/delete/:id', (req, res)=>{
       res.redirect('/student');
   });
 })
+router.get('/:id/addsubject', (req, res)=>{
+  // console.log('------------------',req.params.id)
+  model.Student.findById(req.params.id).then(dataStudent =>{
+    model.Subject.findAll().then((dataSubjects)=>{
+      res.render('addSubject',{dataStudent:dataStudent, dataSubjects:dataSubjects})
+    })
+  })
+})
 
+router.post('/:id/addsubject', (req, res)=>{
+    // console.log(req.params.id)
+    // console.log('=============',req.body.SubjectId);
+    model.Subject_Student.create({
+      SubjectId: req.body.SubjectId,
+      StudentId: req.params.id
+    }).then(()=>{
+      res.redirect('/student')
+    })
+})
 
 module.exports=router;

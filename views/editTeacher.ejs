@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Edit Student</title>
+  <title>Edit Teacher</title>
   <% include ../partials/head %>
 </head>
 <body>
 <section class="section">
     <div class="container">
-  <h1 class="title">Edit Student</h1>
+  <h1 class="title">Edit Teacher</h1>
   <br/>
-  <form action="<%=getStudent.id%>" method="post">
+  <form action="<%=dataTeacher.id%>" method="post">
       <div class="field">
-          <label class="label">Fisrt Name</label>
+          <label class="label">First name</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input is-success" name="first_name" type="text" value="<%=getStudent.first_name%>">
+            <input class="input is-success" name="first_name" type="text" value="<%=dataTeacher.first_name%>">
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>
@@ -25,7 +25,7 @@
         <div class="field">
             <label class="label">Last Name</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" name="last_name" type="text" value="<%=getStudent.last_name%>">
+              <input class="input is-success" name="last_name" type="text" value="<%=dataTeacher.last_name%>">
               <span class="icon is-small is-left">
                 <i class="fa fa-user"></i>
               </span>
@@ -37,7 +37,7 @@
       <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input is-success" name="email" type="text" value="<%=getStudent.email%>">
+            <input class="input is-success" name="email" type="text" value="<%=dataTeacher.email%>">
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>
@@ -46,9 +46,28 @@
             </span>
           </div>
         </div>
-    <div class="control">
-        <button class="button is-primary">Kirim</button>
-    </div>
+   
+      <div class="field">
+          <label class="label">Subject</label>
+          <div class="control">
+            <div class="select">
+              <select name="name">
+                    <%dataSubjects.forEach((listSubjects)=>{%>
+                <option value='<%= listSubjects.id %>'
+                    <%if(dataTeacher.SubjectId===listSubjects.id){%>
+                      <%='selected'%>
+                    <%}%>
+                  >
+                    <%= listSubjects.subject_name %>
+                </option>
+                <%}, this)%>
+              </select>
+            </div>
+          </div>
+        </div><br><br/>
+        <div class="control">
+            <button class="button is-primary">Kirim</button>
+        </div>
     </form>
 
 </body>
