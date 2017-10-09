@@ -25,7 +25,12 @@ router.post('/',(req, res)=>{
     // find user where username == req.username
     // if ketemu, baru di encrypt password nya.. samain sama yg di database
     // if ga keetemu, keluarin error
-      model.User.findOne({ where: {username: req.body.username} }).then(dataUser => {
+      model.User.findOne(
+        { where: {
+                  username: req.body.username
+                }
+        })
+      .then(dataUser => {
         let secret = dataUser.salt
         let nakedPassword = req.body.password;
         const passwordInput = crypto.createHmac('sha256', secret)

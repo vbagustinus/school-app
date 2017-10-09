@@ -12,32 +12,18 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Users',
-    [
+    return queryInterface.bulkInsert('Subjects', [
       {
-        username: 'johndoe',
-        password: 'foobar',
-        role:'teacher',
+        subject_name: 'Kimia',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        username: 'pakdengklek',
-        password: 'gogetgold',
-        role:'academic',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        username: 'charlesxavier',
-        password: 'magnetowhy',
-        role:'headmaster',
+        subject_name: 'Ekonomi',
         createdAt: new Date(),
         updatedAt: new Date()
       }
-      // username: johndoe, password: foobar, role: teacher
-      // username: pakdengklek, password: gogetgold, role: academic
-      // username: charlesxavier, password: magnetowhy, role: headmaster
+
     ]);
   },
 
