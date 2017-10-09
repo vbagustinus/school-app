@@ -1,6 +1,14 @@
 var express = require('express')
 var router = express.Router()
 let model = require('../models')
+
+router.use(function(req, res, next) {
+  if(req.session.hasOwnProperty('username')){
+    next();
+  }else {
+    res.render('login', { msgError: ""})
+  }
+})
 // define the home page route
 router.get('/', function (req, res) {
   model.Teacher.findAll().then(dataTeachers => {
@@ -21,7 +29,7 @@ router.get('/', function (req, res) {
         result['subject'] = allTeacher[index];
       }, this);
       // console.log('========================',dataTe  achers)
-      res.render('teacher',{dataTeachers:dataTeachers})
+      res.render('teacher',{dataTeachers:dataTeachers,session:req.session})
     })
 
   });

@@ -12,20 +12,32 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Subject_Students', [
+    return queryInterface.bulkInsert('Users',
+    [
       {
-        SubjectId: 1,
-        StudentId: 1,
+        username: 'johndoe',
+        password: 'foobar',
+        role:'teacher',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        SubjectId: 2,
-        StudentId: 2,
+        username: 'pakdengklek',
+        password: 'gogetgold',
+        role:'academic',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: 'charlesxavier',
+        password: 'magnetowhy',
+        role:'headmaster',
         createdAt: new Date(),
         updatedAt: new Date()
       }
-
+      // username: johndoe, password: foobar, role: teacher
+      // username: pakdengklek, password: gogetgold, role: academic
+      // username: charlesxavier, password: magnetowhy, role: headmaster
     ]);
   },
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up</title>
+  <% include ../partials/head %>
+</head>
+<body>
+  <form action="/signup" method="post">
+  <div class="login-wrapper columns">
+  <div class="tile is-ancestor">
+  <div class="tile is-parent">
+  </div>
+  <div class="tile is-parent is-6">
+      <!-- ----------------------------------- -->
+      <div class="column is-12">
+        <section class="hero is-fullheight">
+          <div class="hero-body">
+            <div class="container">
+              <div class="columns">
+                <div class="column is-8 is-offset-2">
+                  <h1 class="title">
+                    Sign Up
+                  </h1>
+                  <div class="login-form">
+                    <p class="control has-icon has-icon-right">
+                      <input class="input email-input" name="username" type="text" placeholder="Username">
+                      <span class="icon user">
+                        <i class="fa fa-user"></i>
+                      </span>
+                    </p>
+                    <br/>
+                    <p class="control has-icon has-icon-right">
+                      <input class="input password-input" name="password" type="password" placeholder="●●●●●●●">
+                      <span class="icon user">
+                        <i class="fa fa-lock"></i>
+                      </span>
+                    </p><br/>
+                    <div class="field">
+                      <label class="label">Subject</label>
+                      <div class="control">
+                        <div class="select">
+                          <select name="role">
+                            <option value="teacher">Teacher</option>
+                            <option value="academic">Academic</option>
+                            <option value="headmaster">Headmaster</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <br/>
+                    <p class="control login">
+                      <button class="button is-primary is-outlined is-large is-fullwidth">Sign Up</button>
+                    </p>
+                  </div>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- ---------------------- -->
+  </div>
+  <div class="tile is-parent">
+  </div>
+</div>
+  </div>
+  </form>
+</body>
+</html>

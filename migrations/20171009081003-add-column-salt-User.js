@@ -7,14 +7,13 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-
+      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
     return queryInterface.addColumn(
-      'Teachers',
-      'SubjectId',
+      'Users',
+      'salt',
       {
-        type : Sequelize.INTEGER,
-        allowNull: true
+        type : Sequelize.INTEGER
       }
     );
   },
